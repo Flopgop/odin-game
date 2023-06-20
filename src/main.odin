@@ -152,9 +152,7 @@ main :: proc () {
         rl.BeginDrawing()
             rl.ClearBackground(rl.Color{69,69,69,255})
             rl.BeginMode3D(camera)
-                for object in objects {
-                    gameobject.draw(object)
-                }
+                for object in objects do gameobject.draw(object)
                 rl.DrawMesh(rayMesh, rayMaterial, transpose(linalg.matrix4_translate(playerPos+Vector3f32{0,1.75,0})*linalg.matrix4_rotate(angle,Vector3f32{0,1,0})*linalg.matrix4_translate(Vector3f32{0,0,0.75})))
                 rl.DrawMesh(playerMesh, defaultMaterial, transpose(linalg.matrix4_translate(playerPos)*linalg.matrix4_rotate(angle, Vector3f32{0,1,0})))
                 rl.DrawBoundingBox(playerBB, rl.GREEN)
