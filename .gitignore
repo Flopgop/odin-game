@@ -1,0 +1,5 @@
+ols.json
+.git/
+.vscode/
+*.bin
+*.exe
