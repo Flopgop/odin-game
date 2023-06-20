@@ -31,7 +31,7 @@ main :: proc () {
         floorMesh,
         defaultMaterial,
         floorBB,
-        transpose(linalg.matrix4_translate(Vector3f32{0,0,0}))
+        transpose(linalg.matrix4_translate(Vector3f32{0,0,0})),
     }
     playerOriginalBB := rl.GetMeshBoundingBox(playerMesh)
 
@@ -47,7 +47,7 @@ main :: proc () {
             cubeMesh,
             defaultMaterial,
             cubeBB,
-            transpose(linalg.matrix4_translate(Vector3f32{i%4<2?0:2,1.5*f32(i)+0.5,(i%4==0||i%4==3)?0:2}))
+            transpose(linalg.matrix4_translate(Vector3f32{i%4<2?0:2,1.5*f32(i)+0.5,(i%4==0||i%4==3)?0:2})),
         }
         append(&objects, cubeGameObject)
     }
