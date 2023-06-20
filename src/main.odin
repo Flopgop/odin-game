@@ -1,6 +1,7 @@
 package main
 
 import "tests"
+import "core:os"
 import "core:fmt"
 import "core:math"
 import "gameobject"
