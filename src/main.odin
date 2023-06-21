@@ -11,14 +11,13 @@ import rl "vendor:raylib"
 Vector3f32 :: linalg.Vector3f32
 
 main :: proc () {   
-    rl.SetConfigFlags({.WINDOW_TRANSPARENT, .WINDOW_UNDECORATED, .MSAA_4X_HINT})
-    rl.InitWindow(1280,720,"Game")
-    defer rl.CloseWindow()
-    
     if len(os.args)>1 && os.args[1] == "test" {
         tests.run_tests()
         return
     }
+    rl.SetConfigFlags({.WINDOW_TRANSPARENT, .WINDOW_UNDECORATED, .MSAA_4X_HINT})
+    rl.InitWindow(1280,720,"Game")
+    defer rl.CloseWindow()
 
     camera := rl.Camera {
         Vector3f32{10,10,10},
