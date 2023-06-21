@@ -1,5 +1,7 @@
 package main
 
+import "tests"
+import "core:os"
 import "core:fmt"
 import "core:math"
 import "gameobject"
@@ -8,9 +10,14 @@ import rl "vendor:raylib"
 
 Vector3f32 :: linalg.Vector3f32
 
-main :: proc () {
+main :: proc () {   
     rl.SetConfigFlags({.WINDOW_TRANSPARENT, .WINDOW_UNDECORATED, .MSAA_4X_HINT})
     rl.InitWindow(1280,720,"Game")
+    defer rl.CloseWindow()
+    #bounds_check if os.args[1] == "test" {
+        tests.run_tests()
+        return
+    }
 
     camera := rl.Camera {
         Vector3f32{10,10,10},
