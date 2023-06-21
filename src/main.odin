@@ -14,7 +14,8 @@ main :: proc () {
     rl.SetConfigFlags({.WINDOW_TRANSPARENT, .WINDOW_UNDECORATED, .MSAA_4X_HINT})
     rl.InitWindow(1280,720,"Game")
     defer rl.CloseWindow()
-    #bounds_check if os.args[1] == "test" {
+    
+    if len(os.args)>1 && os.args[1] == "test" {
         tests.run_tests()
         return
     }
